@@ -64,8 +64,7 @@ const Navbar = () => {
                   <li key={index}>
                     <Link
                       to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-blue-900 font-bold text-2xl border-b-4 border-transparent hover:border-blue-900 transition duration-300"
-                      style={{ fontFamily: "Poppins, sans-serif" }}
+                      className="text-black font-baskerville font-bold text-2xl border-b-4 border-transparent hover:border-[#5e2325] transition duration-300"
                       onClick={toggleMenu}
                     >
                       {item}

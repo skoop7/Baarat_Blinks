@@ -313,92 +313,99 @@ const photos = [
   },
 ];
 
-const PreWeddingGallery = ({ photos }) => {
-  const preWeddingItems = photos.filter(
-    (item) => item.category === "pre-wedding"
-  );
-  const weddingFilms = photos.filter(
-    (item) => item.category === "wedding-films"
-  );
+const PreWeddingGallery = ({ photos, featuredPhotoId, onPhotoClick }) => {
+  const displayPhotos = [];
+  const featuredPhoto = featuredPhotoId
+    ? photos.find((p) => p.id === featuredPhotoId)
+    : photos[0];
 
-  // Combine pre-wedding photos with some wedding films for demonstration
-  const combinedItems = [...preWeddingItems, ...weddingFilms.slice(0, 3)];
+  // Reorganize photos to maintain the grid layout
+  const nonFeaturedPhotos = photos.filter((p) => p.id !== featuredPhoto.id);
 
-  return (
-    <div className="max-w-[2000px] mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {combinedItems.map((item) => (
-          <MediaCard key={item.id} item={item} />
-        ))}
-      </div>
-    </div>
-  );
-};
+  // First 4 photos before the featured spot
+  for (let i = 0; i < 4; i++) {
+    displayPhotos.push({
+      ...(nonFeaturedPhotos[i] || photos[0]),
+      id: nonFeaturedPhotos[i]?.id || `placeholder-${i}`,
+    });
+  }
 
-const MediaCard = ({ item }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const isVideo = Boolean(item.videoUrl);
+  // Add the featured photo at index 4
+  displayPhotos.push(featuredPhoto);
 
-  const handleMouseEnter = (videoElement) => {
-    setIsHovered(true);
-    if (videoElement) {
-      videoElement
-        .play()
-        .catch((error) => console.log("Autoplay failed:", error));
-    }
-  };
+  // Fill remaining spots
+  while (displayPhotos.length < 12) {
+    const index = displayPhotos.length;
+    displayPhotos.push({
+      ...(nonFeaturedPhotos[index - 5] || photos[0]),
+      id: nonFeaturedPhotos[index - 5]?.id || `placeholder-${index}`,
+    });
+  }
 
-  const handleMouseLeave = (videoElement) => {
-    setIsHovered(false);
-    if (videoElement) {
-      videoElement.pause();
-      videoElement.currentTime = 0;
-    }
-  };
+  // Add corner cell
+  displayPhotos.push({
+    id: "corner-cell",
+    url: photos[0]?.url || "",
+    title: "Corner Highlight",
+  });
+
+  const featuredPhotoIndex = 4;
 
   return (
-    <div
-      className="relative aspect-[3/4] rounded-xl overflow-hidden group"
-      onMouseEnter={(e) =>
-        handleMouseEnter(e.currentTarget.querySelector("video"))
-      }
-      onMouseLeave={(e) =>
-        handleMouseLeave(e.currentTarget.querySelector("video"))
-      }
-    >
-      {isVideo ? (
-        <>
-          <video
-            src={item.videoUrl}
-            className="absolute inset-0 w-full h-full object-cover"
-            loop
-            muted
-            playsInline
-          />
-          {!isHovered && (
-            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-              <Play className="w-12 h-12 text-white" />
-            </div>
-          )}
-        </>
-      ) : (
-        <img
-          src={item.url}
-          alt={item.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-      )}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+      {displayPhotos.map((photo, index) => {
+        const isFeatured = index === featuredPhotoIndex;
+        const isLastCell = index === displayPhotos.length - 1;
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="absolute bottom-0 left-0 right-0 p-6">
-          <h3 className="text-white text-xl font-semibold mb-2">
-            {item.title}
-          </h3>
-          {item.subtitle && (
-            <p className="text-white/80 text-sm">{item.subtitle}</p>
-          )}
-        </div>
-      </div>
+        const displayPhoto = photo;
+
+        const gridClass = isFeatured
+          ? `md:col-span-2 md:row-span-3 lg:col-span-2 lg:row-span-3 lg:col-start-2 lg:row-start-1`
+          : "";
+
+        const lastCellClass = isLastCell ? "hidden lg:block" : "";
+
+        return (
+          <div
+            key={photo.id}
+            onClick={() => onPhotoClick(photo.id)}
+            className={`relative overflow-hidden rounded-lg group cursor-pointer ${gridClass} ${lastCellClass}`}
+          >
+            <img
+              src={displayPhoto.url || ""}
+              alt={displayPhoto.title || "No Image Available"}
+              className={`w-full h-full object-cover transition-transform duration-300 group-hover:scale-110
+                ${isFeatured ? "object-center" : ""}`}
+            />
+            {displayPhoto.title && (
+              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white text-center p-4">
+                  <h3
+                    className={`font-semibold ${
+                      isFeatured
+                        ? "text-lg md:text-xl lg:text-2xl"
+                        : "text-base md:text-lg"
+                    }`}
+                  >
+                    {displayPhoto.title}
+                  </h3>
+                  {displayPhoto.subtitle && (
+                    <p
+                      className={`mt-1 ${
+                        isFeatured
+                          ? "text-sm md:text-base"
+                          : "text-xs md:text-sm"
+                      }`}
+                    >
+                      {displayPhoto.subtitle}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -766,9 +773,9 @@ export default function Gallery() {
     (item) => item.category === activeCategory
   );
 
-  const handlePhotoClick = (photo) => {
-    if (photo.id !== "first-cell" && photo.id !== "corner-cell") {
-      setFeaturedPhotoId(photo.id);
+  const handlePhotoClick = (photoId) => {
+    if (photoId !== "first-cell" && photoId !== "corner-cell") {
+      setFeaturedPhotoId(photoId);
     }
   };
 
@@ -823,7 +830,11 @@ export default function Gallery() {
           onPhotoClick={handlePhotoClick}
         />
       ) : activeCategory === "pre-wedding" ? (
-        <PreWeddingGallery photos={filteredItems} />
+        <PreWeddingGallery
+          photos={filteredItems}
+          featuredPhotoId={featuredPhotoId}
+          onPhotoClick={handlePhotoClick}
+        />
       ) : (
         <PhotoGrid
           photos={filteredItems}

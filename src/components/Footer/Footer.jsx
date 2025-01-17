@@ -24,7 +24,7 @@ export default function Footer() {
           <p className="text-sm mb-2 font-semibold flex flex-wrap justify-center sm:ml-0 ml-0">
             A Snapshot of Your Dream Day.
           </p>
-          <div className="flex gap-6 mt-5 ml-4">
+          <div className="flex gap-6 mt-5 lg:ml-6 justify-center">
             <img src="/facebook.png" alt="" />
             <a
               href="https://www.instagram.com/baratblinks/?igsh=cTEwOHM3ZXQ4NWJu"
