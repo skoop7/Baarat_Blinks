@@ -48,7 +48,7 @@ export default function AboutUs() {
           <img
             src="https://i.imghippo.com/files/JlOj5408Cr.png"
             alt="Studio"
-            className="w-5/6 h-fit rounded-[40px] flex  items-center sm:hidden sm:mb-0 mb-10 ml-6"
+            className="w-5/6 h-auto rounded-[40px] flex  items-center sm:hidden sm:mb-0 mb-10 ml-6"
           />
 
           <button
