@@ -581,7 +581,10 @@ const AlbumCollage = ({ photos }) => {
 const VideoGallery = ({ videos, activeVideoId, onVideoSelect }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const videosPerPage = 4;
-  const totalPages = Math.ceil(videos.length / videosPerPage);
+  const mobileVideosPerPage = 1;
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const effectiveVideosPerPage = isMobile ? mobileVideosPerPage : videosPerPage;
+  const totalPages = Math.ceil(videos.length / effectiveVideosPerPage);
 
   const nextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages);
@@ -592,8 +595,8 @@ const VideoGallery = ({ videos, activeVideoId, onVideoSelect }) => {
   };
 
   const visibleVideos = videos.slice(
-    currentPage * videosPerPage,
-    (currentPage + 1) * videosPerPage
+    currentPage * effectiveVideosPerPage,
+    (currentPage + 1) * effectiveVideosPerPage
   );
 
   const activeVideo = videos.find((v) => v.id === activeVideoId);
@@ -633,19 +636,19 @@ const VideoGallery = ({ videos, activeVideoId, onVideoSelect }) => {
           {/* Previous Button */}
           <button
             onClick={prevPage}
-            className="absolute left-0 z-10 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transform -translate-x-1/2"
+            className="absolute left-2 md:left-0 z-10 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transform md:-translate-x-1/2"
             aria-label="Previous videos"
           >
             <ChevronLeft size={24} />
           </button>
 
           {/* Video Thumbnails */}
-          <div className="flex gap-4 w-full px-8">
+          <div className="flex gap-4 w-full px-4 md:px-8 overflow-hidden">
             {visibleVideos.map((video) => (
               <div
                 key={video.id}
                 onClick={() => onVideoSelect(video.id)}
-                className={`w-1/4 cursor-pointer group relative ${
+                className={`w-full md:w-1/4 min-w-full md:min-w-0 cursor-pointer group relative ${
                   video.id === activeVideoId ? "ring-4 ring-[#D2CAB1]" : ""
                 }`}
               >
@@ -674,7 +677,7 @@ const VideoGallery = ({ videos, activeVideoId, onVideoSelect }) => {
           {/* Next Button */}
           <button
             onClick={nextPage}
-            className="absolute right-0 z-10 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transform translate-x-1/2"
+            className="absolute right-2 md:right-0 z-10 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transform md:translate-x-1/2"
             aria-label="Next videos"
           >
             <ChevronRight size={24} />
