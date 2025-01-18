@@ -10,6 +10,7 @@ export function Carousel({ videos }) {
   const [isAutoPlayPaused, setIsAutoPlayPaused] = useState(false);
   const [direction, setDirection] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRefs = useRef([]);
   const carouselRef = useRef(null);
 
@@ -22,7 +23,12 @@ export function Carousel({ videos }) {
 
   // Auto-movement effect
   useEffect(() => {
-    if (hoveredVideoId !== null || expandedVideoId !== null || isAutoPlayPaused)
+    if (
+      hoveredVideoId !== null ||
+      expandedVideoId !== null ||
+      isAutoPlayPaused ||
+      isVideoPlaying
+    )
       return;
 
     const timer = setInterval(() => {
@@ -30,7 +36,7 @@ export function Carousel({ videos }) {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [hoveredVideoId, expandedVideoId, isAutoPlayPaused]);
+  }, [hoveredVideoId, expandedVideoId, isAutoPlayPaused, isVideoPlaying]);
 
   // Pause video when clicking outside
   useEffect(() => {
@@ -49,6 +55,7 @@ export function Carousel({ videos }) {
         Object.values(videoRefs.current).forEach((videoElement) => {
           if (videoElement && !carouselRef.current.contains(event.target)) {
             videoElement.pause(); // Pause all videos on mobile when clicking outside
+            setIsVideoPlaying(false);
           }
         });
       }
@@ -74,15 +81,22 @@ export function Carousel({ videos }) {
 
   const handleVideoClick = (videoId) => {
     if (isMobile) {
-      // On mobile, directly play video without expanding
-      playVideo(videoId);
-      setExpandedVideoId(null);
+      const videoElement = videoRefs.current[videoId];
+      if (videoElement) {
+        if (videoElement.paused) {
+          playVideo(videoId);
+          setIsVideoPlaying(true);
+        } else {
+          pauseVideo(videoId);
+          setIsVideoPlaying(false);
+        }
+      }
     } else {
       if (expandedVideoId === videoId) {
         pauseVideo(videoId);
         setExpandedVideoId(null);
       } else {
-        if (expandedVideoId) pauseVideo(expandedVideoId); // Pause previous video
+        if (expandedVideoId) pauseVideo(expandedVideoId);
         playVideo(videoId);
         setExpandedVideoId(videoId);
       }
@@ -92,14 +106,33 @@ export function Carousel({ videos }) {
   const playVideo = (videoId) => {
     const videoElement = videoRefs.current[videoId];
     if (videoElement) {
-      videoElement.muted = false; // Ensure audio is enabled
+      videoElement.muted = false;
       videoElement.play();
+
+      // Add event listeners for video end and pause
+      videoElement.addEventListener("ended", () => handleVideoEnd(videoId));
+      videoElement.addEventListener("pause", () => handleVideoPause(videoId));
     }
   };
 
   const pauseVideo = (videoId) => {
     const videoElement = videoRefs.current[videoId];
-    if (videoElement) videoElement.pause();
+    if (videoElement) {
+      videoElement.pause();
+      handleVideoPause(videoId);
+    }
+  };
+
+  const handleVideoEnd = (videoId) => {
+    if (isMobile) {
+      setIsVideoPlaying(false);
+    }
+  };
+
+  const handleVideoPause = (videoId) => {
+    if (isMobile) {
+      setIsVideoPlaying(false);
+    }
   };
 
   // Determine visible videos based on screen size
@@ -112,7 +145,7 @@ export function Carousel({ videos }) {
           position: 0,
           isPlaying:
             video.id === hoveredVideoId || video.id === expandedVideoId,
-          isExpanded: false, // No expansion on mobile
+          isExpanded: false,
         },
       ];
     } else {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { GalleryItem } from "./GalleryItem";
+import GalleryItem from "./GalleryItem";
 
 const imageOptions = {
   1: ["/Work1.webp", "/Work2.jpg", "/Work3.jpg"],
@@ -18,39 +18,39 @@ export const EnhancedGalleryItem = ({ position, className, title }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const images = imageOptions[position];
 
-  const changeImage = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-      setIsTransitioning(false);
-    }, 500); // Half of the transition duration
-  };
+  // const changeImage = () => {
+  //   setIsTransitioning(true);
+  //   setTimeout(() => {
+  //     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  //     setIsTransitioning(false);
+  //   }, 500); // Half of the transition duration
+  // };
 
-  useEffect(() => {
-    // Initial delay based on position to stagger the animations
-    const initialDelay = getInitialDelay(position);
+  // useEffect(() => {
+  //   // Initial delay based on position to stagger the animations
+  //   const initialDelay = getInitialDelay(position);
 
-    // Wait for initial delay before starting the interval
-    const startTimeout = setTimeout(() => {
-      // Start the regular interval after the initial delay
-      const interval = setInterval(changeImage, 18000); // 18 seconds total cycle (6 items × 3 seconds)
+  //   // Wait for initial delay before starting the interval
+  //   const startTimeout = setTimeout(() => {
+  //     // Start the regular interval after the initial delay
+  //     const interval = setInterval(changeImage, 18000); // 18 seconds total cycle (6 items × 3 seconds)
 
-      return () => {
-        clearInterval(interval);
-      };
-    }, initialDelay);
+  //     return () => {
+  //       clearInterval(interval);
+  //     };
+  //   }, initialDelay);
 
-    return () => {
-      clearTimeout(startTimeout);
-    };
-  }, [position]);
+  //   return () => {
+  //     clearTimeout(startTimeout);
+  //   };
+  // }, [position]);
 
   return (
-    <div onClick={changeImage} style={{ cursor: "pointer" }}>
+    <div style={{ cursor: "pointer" }}>
       <GalleryItem
         imageUrl={images[currentImageIndex]}
         title={title}
-        className={`${className} motion-preset-fade-lg`}
+        className={`${className}`}
         isTransitioning={isTransitioning}
       />
     </div>

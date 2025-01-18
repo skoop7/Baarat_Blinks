@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <>
       {/* Mobile hamburger button */}
-      <div className="md:hidden fixed top-10 right-4 z-30">
+      <div className="md:hidden fixed top-10 right-0 z-30">
         <button
           onClick={toggleMenu}
           className="text-black font-ubuntu p-2 rounded-lg focus:outline-none"
@@ -43,7 +43,7 @@ const Navbar = () => {
                 <li key={index}>
                   <Link
                     to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="text-black font-baskerville font-semibold text-lg sm:text-xl border-b-4 border-transparent hover:border-[#5e2325] transition duration-300"
+                    className="text-black font-roboto font-semibold text-lg sm:text-xl border-b-4 border-transparent hover:border-[#5e2325] transition duration-300"
                   >
                     {item}
                   </Link>
@@ -64,7 +64,7 @@ const Navbar = () => {
                   <li key={index}>
                     <Link
                       to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-black font-baskerville font-bold text-2xl border-b-4 border-transparent hover:border-[#5e2325] transition duration-300"
+                      className="text-black font-roboto font-bold text-2xl border-b-4 border-transparent hover:border-[#5e2325] transition duration-300"
                       onClick={toggleMenu}
                     >
                       {item}

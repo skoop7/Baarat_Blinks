@@ -230,7 +230,7 @@ const ContactForm = () => {
 
               <button
                 type="submit"
-                className="w-full py-3 px-6 bg-yellow-600 hover:bg-yellow-100 text-black flex gap-4 justify-center rounded-lg transition duration-200 font-bold font-poppins"
+                className="w-full py-3 px-6 bg-[#e9e1d9] hover:bg-[#d6cdc4] text-black flex gap-4 justify-center rounded-lg transition duration-200 font-bold font-poppins"
               >
                 Send{" "}
                 <img

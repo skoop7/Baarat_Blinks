@@ -17,3 +17,38 @@
 .transition-opacity {
   transition: opacity 0.6s ease-in-out;
 }
+
+.card-container {
+  perspective: 500px;
+}
+
+.card {
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.animate-flip {
+  animation: flip 1.4s ease-in-out;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}

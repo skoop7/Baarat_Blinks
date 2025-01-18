@@ -2,46 +2,46 @@ import React from "react";
 
 const teamMembers = [
   {
-    name: "Maria Smith",
-    image: "https://i.imghippo.com/files/eTnx4457Vak.png",
+    name: "Vedant Sharma",
+    image: "/AboutUsHome.webp",
     socials: {
       facebook: "#",
       instagram: "#",
       linkedin: "#",
     },
-    designation: "CEO",
+    designation: "Founder",
   },
   {
-    name: "Maria Smith",
+    name: "Pawan Gaur",
 
-    image: "https://i.imghippo.com/files/eTnx4457Vak.png",
+    image: "/PawanG.webp",
     socials: {
       facebook: "#",
       instagram: "#",
       linkedin: "#",
     },
-    designation: "CTO",
+    designation: "Head Cinematographer",
   },
   {
-    name: "Maria Smith",
-    image: "https://i.imghippo.com/files/eTnx4457Vak.png",
+    name: "Vaibhav Mishra",
+    image: "/HeadVideo.webp",
     socials: {
       facebook: "#",
       instagram: "#",
       linkedin: "#",
     },
-    designation: "CFO",
+    designation: "Head Video Editor",
   },
-  {
-    name: "Maria Smith",
-    image: "https://i.imghippo.com/files/eTnx4457Vak.png",
-    socials: {
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-    },
-    designation: "CMO",
-  },
+  // {
+  //   name: "Maria Smith",
+  //   image: "https://i.imghippo.com/files/eTnx4457Vak.png",
+  //   socials: {
+  //     facebook: "#",
+  //     instagram: "#",
+  //     linkedin: "#",
+  //   },
+  //   designation: "CMO",
+  // },
 ];
 
 const TeamCard = ({ member, isOffset }) => (
@@ -58,7 +58,7 @@ const TeamCard = ({ member, isOffset }) => (
     </div>
     <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
       <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
-      <h4 className="text-lg text-gray-600 font-semibold">
+      <h4 className="text-lg text-gray-600 font-semibold text-nowrap">
         {member.designation}
       </h4>
       {/* <div className="flex gap-6">
@@ -83,7 +83,7 @@ function TeamSection() {
         >
           Our Team
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-8">
           {teamMembers.map((member, index) => (
             <TeamCard
               key={member.name}

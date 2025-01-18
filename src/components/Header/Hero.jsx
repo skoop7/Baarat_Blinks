@@ -12,7 +12,7 @@ export default function Hero({
   return (
     <div
       className={cn(
-        "relative flex justify-center items-center w-full h-screen overflow-hidden bg-cover",
+        "relative flex justify-center items-center w-full h-screen overflow-hidden bg-cover ",
         containerClassName
       )}
       style={{
@@ -22,9 +22,7 @@ export default function Hero({
       }}
     >
       {/* <Navbar /> */}
-      <h1 className={`text-black font-quintessential  ${className}`}>
-        {title}
-      </h1>
+      <h1 className={`text-black font-opensans  ${className}`}>{title}</h1>
     </div>
   );
 }

@@ -18,16 +18,16 @@ export default function AboutUs() {
           </div>
 
           <img
-            src="https://i.imghippo.com/files/JlOj5408Cr.png"
+            src="/AboutUsHome.webp"
             alt="Studio"
-            className="w-5/6 h-full rounded-[40px] hidden sm:block"
+            className="w-5/6 h-4/5 object-cover rounded-[40px] hidden sm:block"
           />
         </div>
 
         {/* Content section */}
         <div className="p-4 md:p-6 lg:p-8 md:w-1/2">
           <h1
-            className="text-4xl md:text-5xl lg:text-6xl text-[#102c57]"
+            className="text-4xl md:text-5xl lg:text-6xl text-[#102c57] text-center lg:text-left"
             style={{ fontFamily: "Quintessential, cursive" }}
           >
             About us
@@ -46,7 +46,7 @@ export default function AboutUs() {
             memories into timeless treasures that will last a lifetime.
           </p>
           <img
-            src="https://i.imghippo.com/files/JlOj5408Cr.png"
+            src="/AboutUsHome.webp"
             alt="Studio"
             className="w-5/6 h-auto rounded-[40px] flex  items-center sm:hidden sm:mb-0 mb-10 ml-6"
           />

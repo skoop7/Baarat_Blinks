@@ -9,6 +9,8 @@ export default {
         poppins: ["Poppins", "sans-serif"],
         ubuntu: ["Ubuntu", "sans-serif"],
         baskerville: ["baskerville"],
+        roboto: ["Roboto", "sans-serif"],
+        opensans: ["Open Sans", "sans-serif"],
       },
       backdropBlur: {
         xs: "3px",
