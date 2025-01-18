@@ -52,12 +52,17 @@ export function Carousel({ videos }) {
 
       // Handle mobile-specific behavior to pause videos
       if (isMobile && videoRefs.current) {
-        Object.values(videoRefs.current).forEach((videoElement) => {
-          if (videoElement && !carouselRef.current.contains(event.target)) {
-            videoElement.pause(); // Pause all videos on mobile when clicking outside
-            setIsVideoPlaying(false);
-          }
-        });
+        const isClickInsideCarousel = carouselRef.current?.contains(
+          event.target
+        );
+        if (!isClickInsideCarousel) {
+          Object.values(videoRefs.current).forEach((videoElement) => {
+            if (videoElement) {
+              videoElement.pause();
+              setIsVideoPlaying(false);
+            }
+          });
+        }
       }
     };
 
@@ -79,16 +84,26 @@ export function Carousel({ videos }) {
     setTimeout(() => setIsAutoPlayPaused(false), 5000);
   };
 
+  const handleVideoHover = (videoId, isEntering) => {
+    if (!isMobile) {
+      setHoveredVideoId(isEntering ? videoId : null);
+    }
+  };
+
   const handleVideoClick = (videoId) => {
     if (isMobile) {
       const videoElement = videoRefs.current[videoId];
       if (videoElement) {
         if (videoElement.paused) {
+          // Pause all other videos first
+          Object.entries(videoRefs.current).forEach(([id, element]) => {
+            if (id !== videoId && element) {
+              element.pause();
+            }
+          });
           playVideo(videoId);
-          setIsVideoPlaying(true);
         } else {
           pauseVideo(videoId);
-          setIsVideoPlaying(false);
         }
       }
     } else {
@@ -107,9 +122,16 @@ export function Carousel({ videos }) {
     const videoElement = videoRefs.current[videoId];
     if (videoElement) {
       videoElement.muted = false;
-      videoElement.play();
+      videoElement
+        .play()
+        .then(() => {
+          setIsVideoPlaying(true);
+        })
+        .catch((error) => {
+          console.error("Error playing video:", error);
+          setIsVideoPlaying(false);
+        });
 
-      // Add event listeners for video end and pause
       videoElement.addEventListener("ended", () => handleVideoEnd(videoId));
       videoElement.addEventListener("pause", () => handleVideoPause(videoId));
     }
@@ -143,8 +165,7 @@ export function Carousel({ videos }) {
         {
           ...video,
           position: 0,
-          isPlaying:
-            video.id === hoveredVideoId || video.id === expandedVideoId,
+          isPlaying: isVideoPlaying,
           isExpanded: false,
         },
       ];
@@ -173,7 +194,7 @@ export function Carousel({ videos }) {
     >
       <motion.div
         className={`flex items-center justify-center gap-10 ${
-          isMobile ? "flex-col " : ""
+          isMobile ? "flex-col" : ""
         }`}
         initial={false}
       >
