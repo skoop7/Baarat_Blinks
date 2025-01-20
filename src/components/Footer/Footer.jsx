@@ -24,7 +24,7 @@ export default function Footer() {
           <p className="text-sm mb-2 font-semibold flex flex-wrap justify-center sm:ml-0 ml-0">
             A Snapshot of Your Dream Day.
           </p>
-          <div className="flex gap-6 mt-5 lg:ml-6 justify-center">
+          <div className="flex gap-6 mt-5 lg:ml-4 justify-center">
             <a
               href="https://www.facebook.com/vedant.sharma.9469"
               target="_blank"
