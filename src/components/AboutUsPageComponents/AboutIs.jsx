@@ -53,13 +53,13 @@ const AboutIs = () => {
         {/* Text Content */}
         <div className="w-full md:w-1/2 text-center md:text-left md:ml-5 md:pr-20">
           <h2
-            className="text-3xl sm:text-4xl md:text-7xl font-serif mb-4 text-black"
+            className="text-4xl sm:text-4xl md:text-6xl font-serif mb-4 text-black"
             style={{ fontFamily: "Quintessential, cursive" }}
           >
             About Us
           </h2>
           <p
-            className="text-black leading-relaxed text-sm sm:text-base md:text-lg"
+            className="text-black leading-relaxed text-sm sm:text-base md:text-lg text-justify"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Every wedding is a unique celebration, and we believe in capturing

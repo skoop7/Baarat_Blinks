@@ -9,21 +9,21 @@ const strengths = [
 
 const Content = () => {
   return (
-    <div className="space-y-4 sm:space-y-6">
+    <div className="space-y-6 sm:space-y-8">
       <h1
         className="text-4xl sm:text-6xl font-serif text-center md:text-left"
         style={{ fontFamily: "quintessential, cursive" }}
       >
         Our Key Strengths
       </h1>
-      <div className="space-y-4 sm:space-y-6 text-center md:text-left text-lg font-poppins ">
+      <div className="space-y-6 sm:space-y-6 text-center md:text-left text-sm lg:text-lg font-poppins ">
         <p className="text-black  leading-6 sm:leading-7 text-justify">
           We take pride in offering exceptional photography and videography
           services, ensuring that each moment of your wedding is captured with
           the utmost care and creativity. Our approach guarantees timeless
           memories that reflect the true essence of your special day.
         </p>
-        <p className="text-black  leading-6 sm:leading-7 text-lg font-poppins text-justify">
+        <p className="text-black  leading-6 sm:leading-7 text-sm lg:text-lg font-poppins text-justify">
           One of our fortes is pre-wedding shoots, where we create beautiful,
           candid moments that you can cherish forever. Whether it’s an intimate
           session or an adventurous one, we tailor the experience to reflect

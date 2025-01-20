@@ -10,7 +10,7 @@ export const ContactTitle = () => {
         Contact
       </h2>
       <h1
-        className="text-3xl sm:text-4xl lg:text-5xl flex justify-center lg:block font-serif text-[#102c57]"
+        className="text-4xl sm:text-4xl lg:text-6xl flex justify-center lg:block font-serif text-[#102c57]"
         style={{ fontFamily: "Quintessential, cursive" }}
       >
         Get in Touch

@@ -99,10 +99,10 @@ const ContactForm = () => {
         <div className="grid md:grid-cols-2 gap-20 px-6 md:p-12">
           {/* Form Section */}
           <div>
-            <h1 className=" text-4xl lg:text-5xl  font-semibold mb-4 font-quintessential">
+            <h1 className=" text-4xl lg:text-6xl  font-semibold mb-4 font-quintessential">
               Get in Touch
             </h1>
-            <p className="text-black mb-8">
+            <p className="text-black mb-8 font-poppins text-sm lg:text-lg text-justify py-1">
               Please provide your details below, and we will get back to you at
               the earliest with the information you need.
             </p>

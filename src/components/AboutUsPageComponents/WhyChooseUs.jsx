@@ -6,7 +6,7 @@ const WhyChooseUs = () => {
     <section className="bg-[#F3E9E0] py-16 my-10 rounded-2xl">
       <div className="container mx-auto px-4">
         <h2
-          className="text-4xl lg:text-7xl text-center mb-12 font-serif"
+          className="text-4xl lg:text-6xl text-center mb-12 font-serif"
           style={{ fontFamily: "Quintessential, cursive" }}
         >
           Why Choose Us
@@ -46,7 +46,6 @@ const WhyChooseUs = () => {
               <img
                 src="https://i.imghippo.com/files/hBB6509MlY.png"
                 alt=""
-                srcset=""
                 className="h-20 w-20"
               />
             </div>

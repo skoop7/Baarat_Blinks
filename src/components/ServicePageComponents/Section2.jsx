@@ -65,7 +65,7 @@ const Section2 = ({
           </h2>
           <p
             className="text-black font-poppins leading-relaxed text-sm sm:text-base md:text-lg 
-            max-w-2xl md:max-w-none text-center md:text-left"
+            max-w-2xl md:max-w-none text-justify md:text-left"
           >
             {para}
           </p>
