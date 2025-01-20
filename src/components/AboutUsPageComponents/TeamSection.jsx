@@ -45,7 +45,9 @@ const teamMembers = [
 ];
 
 const TeamCard = ({ member, isOffset }) => (
-  <div className={`relative w-full ${isOffset ? "mt-20" : ""} h-[500px]`}>
+  <div
+    className={`relative w-full ${isOffset ? "lg:mt-20" : ""} h-[500px] my-5`}
+  >
     <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover mb-12 border-[#D9D9D9] border-8 h-full relative group">
       <div className="w-full h-full overflow-hidden relative">
         <img

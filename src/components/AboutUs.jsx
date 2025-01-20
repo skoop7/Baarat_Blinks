@@ -25,7 +25,7 @@ export default function AboutUs() {
         </div>
 
         {/* Content section */}
-        <div className="p-4 md:p-6 lg:p-8 md:w-1/2">
+        <div className="p-4 md:p-6 lg:p-8 md:w-1/2 flex flex-col justify-center items-center lg:justify-start lg:items-start ">
           <h1
             className="text-4xl md:text-5xl lg:text-6xl text-[#102c57] text-center lg:text-left"
             style={{ fontFamily: "Quintessential, cursive" }}
@@ -55,7 +55,7 @@ export default function AboutUs() {
             className="flex items-center gap-2 px-6 md:px-10 py-2.5 md:py-3 
                      text-navy-800 font-semibold text-base md:text-lg border-2 
                      border-black rounded-full hover:bg-navy-50 transition-colors 
-                     shadow-sm shadow-black mt-6 md:mt-12 lg:mt-12 hover:scale-105 trasition-transform duration-300 justify-center sm:ml-0 ml-20"
+                     shadow-sm shadow-black mt-6 md:mt-12 lg:mt-12 hover:scale-105 trasition-transform duration-300 justify-center sm:ml-0 "
             style={{ fontFamily: "Poppins, sans-serif" }}
             onClick={() => navigate("/about-us")}
           >
