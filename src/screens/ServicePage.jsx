@@ -6,7 +6,7 @@ export default function ServicePage() {
   return (
     <div>
       <Hero
-        imageUrl="/ServicesBG2.JPG"
+        imageUrl="/ServicesBG2.png"
         title="Services"
         className="text-6xl md:text-8xl  lg:text-[10rem] mt-10 "
         containerClassName={"max-h-[600px]"}

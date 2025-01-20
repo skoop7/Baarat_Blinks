@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const categories = [
   { id: "drone", name: "Drone" },
@@ -578,13 +578,31 @@ const AlbumCollage = ({ photos }) => {
   );
 };
 
-const VideoGallery = ({ videos, activeVideoId, onVideoSelect }) => {
+// import React, { useState, useEffect } from 'react';
+// import { ChevronLeft, ChevronRight } from 'lucide-react';
+// import YouTube from 'react-youtube';
+
+const VideoGallery = ({
+  videos,
+  activeVideoId: propActiveVideoId,
+  onVideoSelect,
+}) => {
+  // Use the provided activeVideoId or default to the first video's ID
+  const activeVideoId =
+    propActiveVideoId || (videos.length > 0 ? videos[0].id : null);
   const [currentPage, setCurrentPage] = useState(0);
   const videosPerPage = 4;
   const mobileVideosPerPage = 1;
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const effectiveVideosPerPage = isMobile ? mobileVideosPerPage : videosPerPage;
   const totalPages = Math.ceil(videos.length / effectiveVideosPerPage);
+
+  // Select first video when component mounts if no video is selected
+  useEffect(() => {
+    if (!propActiveVideoId && videos.length > 0) {
+      onVideoSelect(videos[0].id);
+    }
+  }, []);
 
   const nextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages);
@@ -599,35 +617,29 @@ const VideoGallery = ({ videos, activeVideoId, onVideoSelect }) => {
     (currentPage + 1) * effectiveVideosPerPage
   );
 
-  const activeVideo = videos.find((v) => v.id === activeVideoId);
+  const activeVideo = videos.find((v) => v.id === activeVideoId) || videos[0];
   const activeVideoYouTubeId = activeVideo
     ? getYouTubeVideoId(activeVideo.videoUrl)
-    : null;
+    : getYouTubeVideoId(videos[0]?.videoUrl);
 
   return (
     <div className="flex flex-col gap-8 w-full max-w-6xl mx-auto">
       {/* Featured Video Player */}
       <div className="w-full aspect-video bg-black rounded-lg overflow-hidden">
-        {activeVideoYouTubeId ? (
-          <YouTube
-            videoId={activeVideoYouTubeId}
-            className="w-full h-full"
-            opts={{
-              width: "100%",
-              height: "100%",
-              playerVars: {
-                autoplay: 1,
-                modestbranding: 1,
-                rel: 0,
-                controls: 1,
-              },
-            }}
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-white">
-            No video selected
-          </div>
-        )}
+        <YouTube
+          videoId={activeVideoYouTubeId}
+          className="w-full h-full"
+          opts={{
+            width: "100%",
+            height: "100%",
+            playerVars: {
+              autoplay: 1,
+              modestbranding: 1,
+              rel: 0,
+              controls: 1,
+            },
+          }}
+        />
       </div>
 
       {/* Video Thumbnails Carousel */}

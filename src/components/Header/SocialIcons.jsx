@@ -8,11 +8,14 @@ export const SocialIcons = () => {
   )}`;
   return (
     <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-4">
-      <SocialIcon
-        src="/facebook.png"
-        alt="Logo 1"
-        className="sm:block hidden"
-      />
+      <a href="https://www.facebook.com/vedant.sharma.9469" target="_blank">
+        <SocialIcon
+          src="/facebook.png"
+          alt="Logo 1"
+          className="sm:block hidden"
+        />
+      </a>
+
       <a
         href="https://www.instagram.com/baratblinks/?igsh=cTEwOHM3ZXQ4NWJu"
         target="_blank"

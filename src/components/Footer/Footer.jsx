@@ -25,7 +25,13 @@ export default function Footer() {
             A Snapshot of Your Dream Day.
           </p>
           <div className="flex gap-6 mt-5 lg:ml-6 justify-center">
-            <img src="/facebook.png" alt="" />
+            <a
+              href="https://www.facebook.com/vedant.sharma.9469"
+              target="_blank"
+            >
+              <img src="/facebook.png" alt="" />
+            </a>
+
             <a
               href="https://www.instagram.com/baratblinks/?igsh=cTEwOHM3ZXQ4NWJu"
               target="_blank"

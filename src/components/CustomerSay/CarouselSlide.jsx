@@ -5,6 +5,8 @@ import { VideoOverlay } from "./VideoOverlay";
 export const CarouselSlide = ({ video, videoRef, onHover, onClick }) => {
   const isCenter = video.position === 0;
   const isExpanded = video.isExpanded;
+  const thumbnailUrl =
+    video.thumbnailUrl || `${video.url.split(".mp4")[0]}/thumbnail.jpg`;
 
   return (
     <motion.div
@@ -46,9 +48,28 @@ export const CarouselSlide = ({ video, videoRef, onHover, onClick }) => {
         whileHover={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
+        {/* Thumbnail Image */}
+        {!video.isPlaying && (
+          <motion.img
+            src={thumbnailUrl}
+            alt="Video thumbnail"
+            className="absolute inset-0 w-full h-full object-cover"
+            animate={{
+              scale: isExpanded ? 1 : isCenter ? 1 : 1.1,
+            }}
+            whileHover={{ scale: isExpanded ? 1 : 1 }}
+            transition={{ duration: 0.3 }}
+            onError={(e) => {
+              e.currentTarget.src = video.url;
+            }}
+          />
+        )}
+
         <motion.video
           ref={videoRef}
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover ${
+            !video.isPlaying ? "opacity-0" : "opacity-100"
+          }`}
           animate={{
             scale: isExpanded ? 1 : isCenter ? 1 : 1.1,
           }}
