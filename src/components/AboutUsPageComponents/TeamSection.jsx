@@ -85,7 +85,7 @@ function TeamSection() {
         >
           Our Team
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mb-8">
           {teamMembers.map((member, index) => (
             <TeamCard
               key={member.name}

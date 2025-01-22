@@ -13,7 +13,11 @@ export default function Footer() {
       <div className="flex flex-wrap md:flex-nowrap justify-between p-6 border-t-2 border-black  bg-[#ffc482]/40">
         <div className="w-full md:w-1/4 mb-6 md:mb-0 md:mr-40 ">
           <div className="flex items-center justify-center mb-1">
-            <img src="/logo.png" alt="Picasa Logo" className="w-52 h-36 mr-3" />
+            <img
+              src="/logo.webp"
+              alt="Picasa Logo"
+              className="w-52 h-36 mr-3"
+            />
             {/* <h1
               className="text-3xl"
               style={{ fontFamily: "Poppins, sans-serif" }}
