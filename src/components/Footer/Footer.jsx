@@ -69,6 +69,12 @@ export default function Footer() {
                 className="hover:underline hover:decoration-[#5e2325]"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
+                <Link to="/about-us">About Us</Link>
+              </li>
+              <li
+                className="hover:underline hover:decoration-[#5e2325]"
+                style={{ fontFamily: "Poppins, sans-serif" }}
+              >
                 <Link to="/services">Services</Link>
               </li>
               <li
@@ -76,12 +82,6 @@ export default function Footer() {
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 <Link to="/gallery">Gallery</Link>
-              </li>
-              <li
-                className="hover:underline hover:decoration-[#5e2325]"
-                style={{ fontFamily: "Poppins, sans-serif" }}
-              >
-                <Link to="/about-us">About Us</Link>
               </li>
               <li
                 className="hover:underline hover:decoration-[#5e2325]"
