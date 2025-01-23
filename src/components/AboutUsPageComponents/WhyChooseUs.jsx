@@ -16,10 +16,7 @@ const WhyChooseUs = () => {
           {/* Professional Photography */}
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 mb-4 text-[#4A90E2]">
-              <img
-                src="https://i.imghippo.com/files/qkks7849vCw.png"
-                alt="Camera"
-              />
+              <img src="/Choose1.webp" alt="Camera" />
             </div>
             <h3 className="text-3xl font-semibold mb-2">Artistic Vision</h3>
             <p className="text-gray-600">
@@ -31,7 +28,7 @@ const WhyChooseUs = () => {
           {/* Video Graphy */}
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 mb-4 text-[#4A90E2]">
-              <img src="https://i.imghippo.com/files/bxb8154PbQ.png" alt="" />
+              <img src="/Choose2.webp" alt="" />
             </div>
             <h3 className="text-3xl font-semibold mb-2">Storytelling</h3>
             <p className="text-gray-600">
@@ -43,11 +40,7 @@ const WhyChooseUs = () => {
           {/* Pre Wedding Shoot */}
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 mb-4 text-[#4A90E2]">
-              <img
-                src="https://i.imghippo.com/files/hBB6509MlY.png"
-                alt=""
-                className="h-20 w-20"
-              />
+              <img src="/Choose3.webp" alt="" className="h-20 w-20" />
             </div>
             <h3 className="text-3xl font-semibold mb-2">Timelessness</h3>
             <p className="text-gray-600">

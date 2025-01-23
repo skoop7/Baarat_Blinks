@@ -31,7 +31,7 @@ export default function HelpCouple() {
         {/* Happy Couples Counter */}
         <div className="flex flex-col items-center gap-2">
           <img
-            src="https://i.imghippo.com/files/DmaA1501qVw.png"
+            src="/Help1.webp"
             alt="Happy Couples Icon"
             className="h-16 w-16"
           />
@@ -46,11 +46,7 @@ export default function HelpCouple() {
 
         {/* Placeholder for other counters */}
         <div className="flex flex-col items-center gap-2">
-          <img
-            src="https://i.imghippo.com/files/FflQ3987GyY.png"
-            alt="Weddings Icon"
-            className="h-16 w-16"
-          />
+          <img src="/Help2.webp" alt="Weddings Icon" className="h-16 w-16" />
           <Counter limit={5} timerLimit={100} />
           <h2
             className="text-2xl text-[#102c57]"
@@ -62,7 +58,7 @@ export default function HelpCouple() {
 
         <div className="flex flex-col items-center gap-2">
           <img
-            src="https://i.imghippo.com/files/qAc3990IPo.png"
+            src="/Help3.webp"
             alt="Dreams Realized Icon"
             className="h-16 w-16"
           />
