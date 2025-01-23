@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /
+
+# Redirect non-www to www (Optional)
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirect all requests to index.html except for existing files/folders
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+
+# Serve static assets correctly
+<FilesMatch "\.(html|js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|otf|eot|ttf|mp4|webp)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>

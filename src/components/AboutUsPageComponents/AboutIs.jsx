@@ -3,7 +3,7 @@ import React from "react";
 const AboutIs = () => {
   return (
     <div
-      className="container mx-auto px-4 py-12 relative bg-cover bg-center bg-no-repeat mb-10 mt-20 "
+      className="container mx-auto px-4 py-12 relative bg-cover bg-center bg-no-repeat mb-10 lg:mt-10 mt-5 "
       // style={{
       //   backgroundImage: "url('https://i.imghippo.com/files/Cynm4298WaQ.png')",
       // }}

@@ -6,7 +6,7 @@ function RecentWork() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen py-8 pr-[30px] pl-[10px] lg:py-16 px-4 lg:px-8">
+    <div className="min-h-screen py-8 pr-[30px] pl-[10px] lg:py-16 px-4 lg:px-8 mb-10 lg:mb-5">
       <div className="max-w-7xl mx-auto">
         <h1
           className="text-4xl lg:text-6xl text-center font-serif text-navy-800 mb-12 sm:mb-16 text-[#102c57]"

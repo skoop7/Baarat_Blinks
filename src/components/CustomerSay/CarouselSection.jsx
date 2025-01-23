@@ -21,7 +21,7 @@ const videos = [
 
 function CarouselSection() {
   return (
-    <div className="-mt-10 sm:mt-0">
+    <div className=" lg:-mt-20">
       <h1
         className="text-4xl sm:text-5xl lg:text-6xl text-center font-serif text-navy-800 mb-4 sm:mb-14 text-[#102c57]"
         style={{ fontFamily: "Quintessential, cursive" }}

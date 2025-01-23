@@ -27,9 +27,13 @@ function ContactLabel() {
             </div>
 
             {/* Address */}
-            <div className="flex flex-col items-center space-x-4">
-              <div className=" p-3 rounded-full ml-2">
-                <img src="/Location.png" alt="" />
+            <div className="flex flex-col items-center space-y-4">
+              <div className="p-3 rounded-full">
+                <img
+                  src="/Location.png"
+                  alt=""
+                  className="w-20 h-20 object-contain"
+                />
               </div>
               <div className="flex flex-col items-center justify-center">
                 <p className="text-sm font-medium text-black">ADDRESS</p>

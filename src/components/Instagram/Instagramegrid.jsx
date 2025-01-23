@@ -18,7 +18,7 @@ const Instagramegrid = () => {
   return (
     <div className="sm:mt-24 mt-10">
       <h1
-        className="text-4xl sm:text-5xl lg:text-6xl text-center font-serif text-navy-800 mb-12 sm:mb-8"
+        className="text-4xl sm:text-5xl lg:text-6xl text-center font-serif text-navy-800 mb-2 sm:mb-8"
         style={{ fontFamily: "Quintessential, cursive" }}
       >
         Instagram

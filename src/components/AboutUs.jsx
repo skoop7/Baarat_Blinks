@@ -5,7 +5,7 @@ export default function AboutUs() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full flex justify-center p-4 md:p-6 lg:p-8 mt-6 mb-24">
+    <div className="w-full flex justify-center p-4 md:p-6 lg:p-8 mt-6 mb-5 lg:mb-10">
       <div className="flex flex-col-reverse md:flex-row gap-6 w-full max-w-7xl">
         {/* Image section */}
         <div className="relative flex justify-center md:min-h-[400px] lg:min-h-[500px] md:w-1/2 lg:gap-0 gap-10">
@@ -48,7 +48,7 @@ export default function AboutUs() {
           <img
             src="/AboutUsHome.webp"
             alt="Studio"
-            className="w-5/6 h-auto rounded-[40px] flex  items-center sm:hidden sm:mb-0 mb-10 ml-6"
+            className="w-5/6 h-auto rounded-[40px] flex  items-center sm:hidden sm:mb-0 mb-10"
           />
 
           <button

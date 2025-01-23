@@ -25,7 +25,7 @@ const Section2 = ({
   return (
     <>
       <div
-        className={`flex flex-col w-full min-h-[500px] py-8 sm:py-12 md:py-16 
+        className={`flex flex-col items-center md:items-stretch w-full min-h-[500px] py-8 sm:py-12 md:py-16 
           ${isReversed ? "md:flex-row-reverse" : "md:flex-row"}
           px-4 sm:px-6 md:px-8 lg:px-12`}
         style={{
@@ -35,14 +35,14 @@ const Section2 = ({
         }}
       >
         {/* Image Section */}
-        <div className="w-full md:w-2/5 flex justify-center md:justify-start mb-8 md:mb-0">
-          <div className="relative w-4/5 sm:w-3/4 md:w-full">
+        <div className="w-full md:w-2/5 flex justify-center mb-8 md:mb-0">
+          <div className="relative w-4/5 sm:w-3/4 md:w-full flex justify-center md:block">
             {isReversed ? (
               <Frame imageURL={imageURL} itemPosition="items-center" />
             ) : (
               <Frame
                 imageURL={imageURL}
-                itemPosition="md:ml-52 flex justify-center"
+                itemPosition="flex justify-center md:ml-52"
               />
             )}
           </div>
@@ -50,22 +50,22 @@ const Section2 = ({
 
         {/* Content Section */}
         <div
-          className={`w-full md:w-3/5 flex flex-col items-center md:items-start
-            space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12
+          className={`w-full md:w-3/5 flex flex-col items-center 
+            md:items-start space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12
             ${
               isReversed
                 ? "md:pl-8 lg:pl-16 xl:pl-24"
                 : "md:pr-8 lg:pr-16 xl:pr-24"
             }
             px-4 sm:px-8 md:px-0
-            mt-8 sm:mt-12 md:mt-16`} // Added margin-top here for spacing
+            mt-8 sm:mt-12 md:mt-16`}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-quintessential text-center md:text-left">
             {title}
           </h2>
           <p
             className="text-black font-poppins leading-relaxed text-sm sm:text-base md:text-lg 
-            max-w-2xl md:max-w-none text-justify md:text-left"
+            max-w-2xl md:max-w-none text-center md:text-left"
           >
             {para}
           </p>

@@ -3,7 +3,7 @@ import Counter from "./Counter";
 
 export default function HelpCouple() {
   return (
-    <div className="flex flex-col items-center justify-center mt-5 px-4 mb-5 w-full">
+    <div className="flex flex-col items-center justify-center mt-5 px-4 mb-10 lg:mb-5 w-full">
       {/* Title Section */}
       <div className="flex flex-col items-center text-center gap-9 mb-16 w-full">
         <h1

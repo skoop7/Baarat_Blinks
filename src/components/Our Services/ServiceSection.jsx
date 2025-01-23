@@ -7,7 +7,7 @@ export default function ServiceSection() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center mb-20">
+    <div className="flex flex-col items-center lg:mb-10 mb-5">
       <h1
         className="text-4xl sm:text-5xl lg:text-6xl text-center font-serif text-navy-800 mb-12 sm:mb-8 text-[#102c57]"
         style={{ fontFamily: "Quintessential, cursive" }}
