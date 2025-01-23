@@ -5,15 +5,22 @@ import Footer from "./components/Footer/Footer";
 import ScrollTop from "./utils/ScrollTop";
 import Loader from "./utils/Loader";
 import ScrollToTop from "./utils/ScrollToTop";
+import HomePage from "./screens/HomePage";
+import AboutUsPage from "./screens/AboutUsPage";
+import GalleryPage from "./screens/GalleryPage";
+import ContactUsPage from "./screens/ContactUsPage";
+import ServicePage from "./screens/ServicePage";
+import TermsAndConditions from "./screens/TermsandCondition";
+import PrivacyPolicy from "./screens/PrivacyPolicy";
 
 // Lazy load your pages
-const HomePage = lazy(() => import("./screens/HomePage"));
-const AboutUsPage = lazy(() => import("./screens/AboutUsPage"));
-const GalleryPage = lazy(() => import("./screens/GalleryPage"));
-const ContactUsPage = lazy(() => import("./screens/ContactUsPage"));
-const ServicePage = lazy(() => import("./screens/ServicePage"));
-const TermsAndConditions = lazy(() => import("./screens/TermsandCondition"));
-const PrivacyPolicy = lazy(() => import("./screens/PrivacyPolicy"));
+// const HomePage = lazy(() => import("./screens/HomePage"));
+// const AboutUsPage = lazy(() => import("./screens/AboutUsPage"));
+// const GalleryPage = lazy(() => import("./screens/GalleryPage"));
+// const ContactUsPage = lazy(() => import("./screens/ContactUsPage"));
+// const ServicePage = lazy(() => import("./screens/ServicePage"));
+// const TermsAndConditions = lazy(() => import("./screens/TermsandCondition"));
+// const PrivacyPolicy = lazy(() => import("./screens/PrivacyPolicy"));
 
 function App() {
   return (

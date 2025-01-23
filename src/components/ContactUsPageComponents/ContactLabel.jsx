@@ -5,7 +5,7 @@ function ContactLabel() {
       <div
         className="absolute inset-0 w-full h-full"
         style={{
-          backgroundImage: `url(/ContactLabel.jpg)`,
+          backgroundImage: `url(/ContactLabel.webp)`,
           backgroundSize: "cover",
           backgroundPosition: "top",
         }}

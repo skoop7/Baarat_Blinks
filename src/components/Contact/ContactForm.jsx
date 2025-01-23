@@ -162,7 +162,7 @@ export const ContactForm = () => {
       >
         {isSubmitting ? "Sending..." : "Send"}
         <img
-          src="/SendButton.png"
+          src="/SendButton.webp"
           alt=""
           className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px]"
         />

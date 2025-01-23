@@ -7,7 +7,7 @@ export default function ContactUsPage() {
   return (
     <div>
       <Hero
-        imageUrl="/ContactUsBG.png"
+        imageUrl="/ContactUsBG.webp"
         title="Contact Us"
         className="text-6xl md:text-8xl lg:text-[10rem] mt-10 "
         containerClassName={"max-h-[600px]"}

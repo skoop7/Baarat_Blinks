@@ -3,10 +3,10 @@ import GalleryItem from "./GalleryItem";
 
 const imageOptions = {
   1: ["/Work1.webp", "/Work2.jpg", "/Work3.jpg"],
-  2: ["/Work2.jpg", "/Work4.webp", "/Work5.webp"],
+  2: ["/Work2.webp", "/Work4.webp", "/Work5.webp"],
   3: ["/Work5.webp", "/Work3.jpg", "/Work6.webp"],
   4: ["/Work4.webp", "/Work1.webp", "/Work6.webp"],
-  5: ["/Work3.jpg", "/Work2.jpg", "/Work5.webp"],
+  5: ["/Work3.webp", "/Work2.jpg", "/Work5.webp"],
   6: ["/Work6.webp", "/Work4.webp", "/Work1.webp"],
 };
 

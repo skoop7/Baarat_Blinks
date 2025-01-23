@@ -234,7 +234,7 @@ const ContactForm = () => {
               >
                 Send{" "}
                 <img
-                  src="/SendButton.png"
+                  src="/SendButton.webp"
                   alt=""
                   className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] lg:mt-0 mt-1"
                 />

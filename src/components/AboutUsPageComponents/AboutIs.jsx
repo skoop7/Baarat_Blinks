@@ -26,7 +26,7 @@ const AboutIs = () => {
           <div className="grid grid-cols-3 sm:gap-4 gap-2">
             <div className="col-span-1">
               <img
-                src="/AboutUs1.webp"
+                src="/AboutUs11.webp"
                 alt="Wedding moment"
                 className="w-full h-auto sm:h-56 md:h-96 object-cover shadow-lg transform hover:scale-105 transition-transform duration-300 border-[#CEAC53] border-4"
               />
@@ -35,14 +35,14 @@ const AboutIs = () => {
               {" "}
               {/* Applied margin here */}
               <img
-                src="/AboutUs2.jpg"
+                src="/AboutUs2.webp"
                 alt="Wedding celebration"
                 className="w-full h-auto sm:h-56 md:h-96 object-cover shadow-lg transform hover:scale-105 transition-transform duration-300 border-[#CEAC53] border-4"
               />
             </div>
             <div className="col-span-1">
               <img
-                src="/AboutUs3.webp"
+                src="/AboutUs33.webp"
                 alt="Wedding portrait"
                 className="w-full h-auto sm:h-56 md:h-96 object-cover shadow-lg transform hover:scale-105 transition-transform duration-300 border-[#CEAC53] border-4"
               />
