@@ -4,17 +4,17 @@ const videos = [
   {
     id: 1,
     // url: "https://res.cloudinary.com/dpohktoqt/video/upload/v1736001922/akmxvnb9wivtfmrp0dee.mp4",
-    url: "https://res.cloudinary.com/dpohktoqt/video/upload/v1737357840/BaaratBlinks/b6nz0kqu7qvd8yvlqajc.mp4",
+    url: "https://res.cloudinary.com/dbg4rrelv/video/upload/v1740140880/aghrogrhxgbmtbaj6pja.mp4",
     thumbnailUrl: "/Test2.webp",
   },
   {
     id: 2,
-    url: "https://res.cloudinary.com/dpohktoqt/video/upload/v1736849534/mymaxh4ifqdsdcmaprql.mp4",
+    url: "https://res.cloudinary.com/dbg4rrelv/video/upload/v1740140869/syrkwjtec4cu8of7obvg.mp4",
     thumbnailUrl: "/Test1.webp",
   },
   {
     id: 3,
-    url: "https://res.cloudinary.com/dpohktoqt/video/upload/v1736849534/mymaxh4ifqdsdcmaprql.mp4",
+    url: "https://res.cloudinary.com/dbg4rrelv/video/upload/v1740140869/syrkwjtec4cu8of7obvg.mp4",
     thumbnailUrl: "/Test1.webp",
   },
 ];
